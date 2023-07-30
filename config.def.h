@@ -7,7 +7,7 @@ const unsigned int interval = 1000;
 static const char unknown_str[] = "n/a";
 
 /* maximum output string length */
-#define MAXLEN 2048
+#define MAXLEN 400
 
 /*
  * function            description                     argument (example)
@@ -62,17 +62,18 @@ static const char unknown_str[] = "n/a";
  *                                                     NULL on OpenBSD/FreeBSD
  * wifi_essid          WiFi ESSID                      interface name (wlan0)
  * wifi_perc           WiFi signal in percent          interface name (wlan0)
+ * #0088FF
  */
 static const struct arg args[] = {
 	/* function format          argument */
-	{ datetime,        "|   %s ",         "%F" },
-  { datetime,        " 󰥔  %s |",         "%T" },
-  { battery_perc,    "   %s |",         "BAT0"},
-  { cpu_perc,        "   %s % |",       NULL},
-  { ram_used,        "   %s /",         NULL},
-  { ram_free,        " %s |",         NULL},
-  { disk_perc,       " 󰋊  %s % |",       "/"},
-  { run_command, ": %4s | ", "pamixer sget Master | awk -F\"[][]\" '/%/ { print $2 }' | head -n1" },
-  {wifi_essid,       " %s ",               "wlan0"},
-  {wifi_perc,        "%s  %",               "wlan0"},
+  { cpu_perc,        "|^c#B882ED^ ^c#FFFFFF^%s%|",       NULL},
+  { run_command,        "^c#FF880F^ ^c#FFFFFF^%s|", "free -h | awk 'NR==2 {print $3}'"},
+  { disk_perc,       "^c#0088FF^󰋊 ^c#FFFFFF^%s%|",       "/"},
+  { battery_perc,    "^c#00F505^  ^c#FFFFFF^%s%|",         "BAT0"},
+  { run_command, "^c#FF080F^ ^c#FFFFFF^%4s|", "echo $(pamixer --get-volume)%" },
+  { run_command, "^c#FF880F^󰃠 ^c#FFFFFF^%s|", "bash ~/dwmblocks/bright.sh"},
+  {wifi_essid,       "^c#0505F5^ ^c#FFFFFF^%s ",               "wlan0"},
+  { run_command,        "|^c#55FFF5^󰥔 ^c#FFFFFF^%s",         "date +\"%H:%M\"" },
+  { run_command,     "|^c#85219C^ ^c#FFFFFF^%s|", "date +\"%d/%m/%y\""},
+  /* {wifi_perc,        "%s  %",               "wlan0"}, */
 };
