@@ -7,7 +7,7 @@ const unsigned int interval = 1000;
 static const char unknown_str[] = "n/a";
 
 /* maximum output string length */
-#define MAXLEN 400
+#define MAXLEN 900
 
 /*
  * function            description                     argument (example)
@@ -66,15 +66,17 @@ static const char unknown_str[] = "n/a";
  */
 static const struct arg args[] = {
 	/* function format          argument */
-  { cpu_perc,        "|^C1^ ^C7^%s%|",       NULL},
-  /* { run_command,      "^C4^%s", "bash /home/abu/abuslstatus/cpus.sh"}, */
-  { run_command,        "^C2^ ^C7^%s|", "free -h | awk 'NR==2 {print $3}'"},
-  { disk_perc,       "^C4^󰋊 ^C7^%s%|",       "/"},
-  { battery_perc,    "^C6^  ^C7^%s%|",         "BAT0"},
-  { run_command, "^C8^ ^C7^%4s|", "echo $(pamixer --get-volume)%" },
-  { run_command, " ^C10^󰃠 ^C7^%s|", "bash ~/dwmblocks/bright.sh"},
-  {wifi_essid,       "^C12^ ^C7^%s ",               "wlan0"},
-  { run_command,        "|^C14^󰥔 ^C7^%s",         "date +\"%H:%M\"" },
-  { run_command,     "|^C3^ ^C7^%s|", "date +\"%d/%m/%y\""},
+  { run_command, "^B1^ ^B0^%4s","bash ~/abuslstatus/cpuse.sh"},
+  { run_command, "^B2^ ^B0^%5s", "free -h | awk 'NR==2 {print $3}'"},
+  { run_command, "^B5^ ^B0^%4s", "bash ~/abuslstatus/hardisk.sh"},
+  { run_command, "^B4^ ^B0^%3s", "bash ~/abuslstatus/batt.sh" },
+  { run_command, "^B8^ ^B0^%4s", "echo $(pamixer --get-volume)%" },
+  { run_command, "^B10^󰃠 ^B0^%4s", "bash ~/dwmblocks/bright.sh"},
+  { run_command,        "^B6^󰥔 ^B0^%5s",         "date +\"%H:%M\"" },
+  { run_command,     "^B3^ ^B0^%8s", "date +\"%d/%m/%y\""},
+  {run_command,       "^B12^ ^B0^%s ", "iwgetid -r"},
+  {run_command,       "%s ", "bash ~/abuslstatus/netwrk.sh"},
+  {run_command,       "%s", "echo 󰣇 󰣇   "},
+  {run_command,       "%s", "echo \"|\" "},
   /* {wifi_perc,        "%s  %",               "wlan0"}, */
 };
