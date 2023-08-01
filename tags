@@ -43,6 +43,10 @@
 !_TAG_KIND_DESCRIPTION!Man	S,subsection	/sub sections/
 !_TAG_KIND_DESCRIPTION!Man	s,section	/sections/
 !_TAG_KIND_DESCRIPTION!Man	t,title	/titles/
+!_TAG_KIND_DESCRIPTION!Sh	a,alias	/aliases/
+!_TAG_KIND_DESCRIPTION!Sh	f,function	/functions/
+!_TAG_KIND_DESCRIPTION!Sh	h,heredoc	/label for here document/
+!_TAG_KIND_DESCRIPTION!Sh	s,script	/script files/
 !_TAG_OUTPUT_EXCMD	mixed	/number, pattern, mixed, or combineV2/
 !_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
 !_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
@@ -52,6 +56,7 @@
 !_TAG_PARSER_VERSION!Diff	0.0	/current.age/
 !_TAG_PARSER_VERSION!Make	0.0	/current.age/
 !_TAG_PARSER_VERSION!Man	0.0	/current.age/
+!_TAG_PARSER_VERSION!Sh	0.0	/current.age/
 !_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
 !_TAG_PROC_CWD	/home/abu/abuslstatus/	//
 !_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
@@ -66,6 +71,8 @@
 !_TAG_ROLE_DESCRIPTION!C++!macro	undef	/undefined/
 !_TAG_ROLE_DESCRIPTION!Make!makefile	included	/included/
 !_TAG_ROLE_DESCRIPTION!Make!makefile	optional	/optionally included/
+!_TAG_ROLE_DESCRIPTION!Sh!heredoc	endmarker	/end marker/
+!_TAG_ROLE_DESCRIPTION!Sh!script	loaded	/loaded/
 $(COM:=.o)	Makefile	/^$(COM:=.o): config.mk $(REQ:=.h) slstatus.h$/;"	t
 -0,0 +1,59	slstatus-backlight-4bd78c9.diff	/^@@ -0,0 +1,59 @@$/;"	h	newFile:b/components/backlight.c
 -1,5 +1,8	slstatus-backlight-4bd78c9.diff	/^@@ -1,5 +1,8 @@$/;"	h	modifiedFile:a/slstatus.h

@@ -66,14 +66,15 @@ static const char unknown_str[] = "n/a";
  */
 static const struct arg args[] = {
 	/* function format          argument */
-  { cpu_perc,        "|^c#B882ED^ ^c#FFFFFF^%s%|",       NULL},
-  { run_command,        "^c#FF880F^ ^c#FFFFFF^%s|", "free -h | awk 'NR==2 {print $3}'"},
-  { disk_perc,       "^c#0088FF^󰋊 ^c#FFFFFF^%s%|",       "/"},
-  { battery_perc,    "^c#00F505^  ^c#FFFFFF^%s%|",         "BAT0"},
-  { run_command, "^c#FF080F^ ^c#FFFFFF^%4s|", "echo $(pamixer --get-volume)%" },
-  { run_command, "^c#FF880F^󰃠 ^c#FFFFFF^%s|", "bash ~/dwmblocks/bright.sh"},
-  {wifi_essid,       "^c#0505F5^ ^c#FFFFFF^%s ",               "wlan0"},
-  { run_command,        "|^c#55FFF5^󰥔 ^c#FFFFFF^%s",         "date +\"%H:%M\"" },
-  { run_command,     "|^c#85219C^ ^c#FFFFFF^%s|", "date +\"%d/%m/%y\""},
+  { cpu_perc,        "|^C1^ ^C7^%s%|",       NULL},
+  /* { run_command,      "^C4^%s", "bash /home/abu/abuslstatus/cpus.sh"}, */
+  { run_command,        "^C2^ ^C7^%s|", "free -h | awk 'NR==2 {print $3}'"},
+  { disk_perc,       "^C4^󰋊 ^C7^%s%|",       "/"},
+  { battery_perc,    "^C6^  ^C7^%s%|",         "BAT0"},
+  { run_command, "^C8^ ^C7^%4s|", "echo $(pamixer --get-volume)%" },
+  { run_command, " ^C10^󰃠 ^C7^%s|", "bash ~/dwmblocks/bright.sh"},
+  {wifi_essid,       "^C12^ ^C7^%s ",               "wlan0"},
+  { run_command,        "|^C14^󰥔 ^C7^%s",         "date +\"%H:%M\"" },
+  { run_command,     "|^C3^ ^C7^%s|", "date +\"%d/%m/%y\""},
   /* {wifi_perc,        "%s  %",               "wlan0"}, */
 };
