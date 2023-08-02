@@ -62,7 +62,7 @@ END {
 	OUTPUT=OUTPUT "^d^^f" X+lrpad "^"
 	if (TOTAL["A"]-PREVTOTAL["A"] != 0) {
 		PCT=int((1-(IDLE["A"]-PREVIDLE["A"])/(TOTAL["A"]-PREVTOTAL["A"]))*100)
-		printf("%s" FGCOLOR "%s%% ^d^\n",OUTPUT,PCT)
+		printf("%2s" FGCOLOR "%03s%% ^d^\n",OUTPUT,PCT)
 	}
 }
 ' < /proc/stat)
