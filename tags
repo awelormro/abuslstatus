@@ -110,6 +110,7 @@ LOG1024	components/ram.c	/^	#define LOG1024 /;"	d	file:
 MANPREFIX	config.mk	/^MANPREFIX = $(PREFIX)\/share\/man$/;"	m
 MAXLEN	config.def.h	/^#define MAXLEN /;"	d
 MAXLEN	config.h	/^#define MAXLEN /;"	d
+MAXLEN	configfiles/mixedblocs.def.h	/^#define MAXLEN /;"	d
 NAME	slstatus.1	/^.Sh NAME$/;"	s
 NET_OPERSTATE	components/wifi.c	/^	#define NET_OPERSTATE /;"	d	file:
 NET_RX_BYTES	components/netspeeds.c	/^	#define NET_RX_BYTES /;"	d	file:
@@ -144,6 +145,7 @@ all	Makefile	/^all: slstatus$/;"	t
 arg	slstatus.c	/^struct arg {$/;"	s	file:
 args	config.def.h	/^static const struct arg args[] = {$/;"	v	typeref:typename:const struct arg[]
 args	config.h	/^static const struct arg args[] = {$/;"	v	typeref:typename:const struct arg[]
+args	configfiles/mixedblocs.def.h	/^static const struct arg args[] = {$/;"	v	typeref:typename:const struct arg[]
 args	slstatus.c	/^	const char *args;$/;"	m	struct:arg	typeref:typename:const char *	file:
 argv0	util.c	/^char *argv0;$/;"	v	typeref:typename:char *
 b/components/backlight.c	slstatus-backlight-4bd78c9.diff	/^+++ b\/components\/backlight.c$/;"	n
@@ -192,6 +194,7 @@ initialized	components/volume.c	/^	static int initialized;$/;"	v	typeref:typenam
 install	Makefile	/^install: all$/;"	t
 interval	config.def.h	/^const unsigned int interval = 1000;$/;"	v	typeref:typename:const unsigned int
 interval	config.h	/^const unsigned int interval = 1000;$/;"	v	typeref:typename:const unsigned int
+interval	configfiles/mixedblocs.def.h	/^const unsigned int interval = 1000;$/;"	v	typeref:typename:const unsigned int
 ip	components/ip.c	/^ip(const char *interface, unsigned short sa_family)$/;"	f	typeref:typename:const char *	file:
 ipv4	components/ip.c	/^ipv4(const char *interface)$/;"	f	typeref:typename:const char *
 ipv6	components/ip.c	/^ipv6(const char *interface)$/;"	f	typeref:typename:const char *
@@ -245,6 +248,7 @@ uid	components/user.c	/^uid(const char *unused)$/;"	f	typeref:typename:const cha
 uninstall	Makefile	/^uninstall:$/;"	t
 unknown_str	config.def.h	/^static const char unknown_str[] = "n\/a";$/;"	v	typeref:typename:const char[]
 unknown_str	config.h	/^static const char unknown_str[] = "n\/a";$/;"	v	typeref:typename:const char[]
+unknown_str	configfiles/mixedblocs.def.h	/^static const char unknown_str[] = "n\/a";$/;"	v	typeref:typename:const char[]
 uptime	components/uptime.c	/^uptime(const char *unused)$/;"	f	typeref:typename:const char *
 usage	slstatus.c	/^usage(void)$/;"	f	typeref:typename:void	file:
 username	components/user.c	/^username(const char *unused)$/;"	f	typeref:typename:const char *

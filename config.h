@@ -66,17 +66,23 @@ static const char unknown_str[] = "n/a";
  */
 static const struct arg args[] = {
 	/* function format          argument */
-  { run_command, "^B1^ ^B0^%4s","bash ~/abuslstatus/cpuse.sh"},
-  { run_command, "^B2^ ^B0^%5s", "free -h | awk 'NR==2 {print $3}'"},
-  { run_command, "^B5^ ^B0^%4s", "bash ~/abuslstatus/hardisk.sh"},
-  { run_command, "^B4^ ^B0^%3s", "bash ~/abuslstatus/batt.sh" },
-  { run_command, "^B8^ ^B0^%4s", "echo $(pamixer --get-volume)%" },
+  { run_command, "^B1^ ^B0^%s",  "bash ~/abuslstatus/cpuse.sh"},
+  { cpu_perc,    "%3s%%",   NULL},
+  { run_command, "^B2^ ^B0^%5s",  "free -h | awk 'NR==2 {print $3}'"},
+  /* { run_command, "^B5^ ^B0^%4s",  "bash ~/abuslstatus/hardisk.sh"}, */
+  { disk_perc,   "^B5^ ^B0^%3s%%",  "/"},
+  { run_command, "^B4^%2s",         "bash ~/abuslstatus/baticon.sh" },
+  { battery_perc, "^B0^%3s%%", "BAT0"},
+  /* { run_command, "^B0^%4s",        "bash ~/abuslstatus/batt.sh" }, */
+  { run_command, "^B8^ ^B0^%4s",  "echo $(pamixer --get-volume)%" },
   { run_command, "^B10^󰃠 ^B0^%4s", "bash ~/dwmblocks/bright.sh"},
-  { run_command,        "^B6^󰥔 ^B0^%5s",         "date +\"%H:%M\"" },
-  { run_command,     "^B3^ ^B0^%8s", "date +\"%d/%m/%y\""},
-  {run_command,       "^B12^ ^B0^%s ", "iwgetid -r"},
-  {run_command,       "%s ", "bash ~/abuslstatus/netwrk.sh"},
-  {run_command,       "%s", "echo 󰣇 󰣇   "},
-  {run_command,       "%s", "echo \"|\" "},
-  /* {wifi_perc,        "%s  %",               "wlan0"}, */
+  /* { run_command, "^B6^󰥔 ^B0^%5s",  "date +\"%H:%M\"" }, */
+  { datetime,    "^B6^󰥔 ^B0^%5s",  "%H:%M"},
+  { datetime,    "^B3^ ^B0^%8s",  "%d/%m/%y"},
+  /* {run_command,  "^B12^ ^B0^%s ", "iwgetid -r"}, */
+  /* {run_command,  "%s ",            "bash ~/abuslstatus/netwrk.sh"}, */
+  /* {run_command,  "%s",             "echo 󰣇 󰣇   "}, */
+  /* {run_command,  "%s",             "echo \"|\" "}, */
+  { wifi_essid,   "^B4^ ^B0^%s",             "wlan0"},
+  { wifi_perc,    "%4s%% |",               "wlan0"},
 };

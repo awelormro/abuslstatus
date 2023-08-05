@@ -8,7 +8,7 @@
 
 # Mostrar el resultado
 # echo "$formatted_cpu_percentage%"
-# !/bin/sh
+#!/bin/sh
 
 #FGCOLOR=^c#FF0088^
 OUTPUT=$(awk -vFGCOLOR=${FGCOLOR} -vFILE=/tmp/.$USER.statusbar.cpu.txt\~ -vCOL1="#912166" -vCOL2="#7d1555" '
@@ -56,13 +56,16 @@ END {
 
 		H=int(14*(1-(IDLE[i]-PREVIDLE[i])/(TOTAL[i]-PREVTOTAL[i])))
 		Y=16-H
-		OUTPUT=OUTPUT "^c" COLOR "^^r" X "," Y "," W "," H "^"
+		# OUTPUT=OUTPUT "^c" COLOR "^^r" X "," Y "," W "," H "^"
+    OUTPUT=OUTPUT "^C1^^r" X "," Y "," W "," H "^"
 		X += 3
 	}
 	OUTPUT=OUTPUT "^d^^f" X+lrpad "^"
 	if (TOTAL["A"]-PREVTOTAL["A"] != 0) {
 		PCT=int((1-(IDLE["A"]-PREVIDLE["A"])/(TOTAL["A"]-PREVTOTAL["A"]))*100)
-		printf("%2s" FGCOLOR "%03s%% ^d^\n",OUTPUT,PCT)
+    # keep="%2s" FGCOLOR "%3s%% CPU^d^\n",OUTPUT,PCT
+    # echo keep
+    printf("%2s" FGCOLOR " ^d^\n",OUTPUT,PCT)
 	}
 }
 ' < /proc/stat)
