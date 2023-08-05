@@ -59,10 +59,11 @@ static const char unknown_str[] = "n/a";
  * uptime              system uptime                   NULL
  * username            username of current user        NULL
  * vol_perc            OSS/ALSA volume in percent      mixer file (/dev/mixer)
+ * /dev/mixer
  *                                                     NULL on OpenBSD/FreeBSD
  * wifi_essid          WiFi ESSID                      interface name (wlan0)
  * wifi_perc           WiFi signal in percent          interface name (wlan0)
- * #0088FF
+ * #0088FF◷◶◐◑
  */
 static const struct arg args[] = {
 	/* function format          argument */
@@ -73,6 +74,7 @@ static const struct arg args[] = {
   { run_command,  "^B4^%2s",         "bash ~/abuslstatus/baticon.sh" },
   { battery_perc, "^B0^%3s%%",       "BAT0"},
   { run_command,  "^B8^ ^B0^%4s",   "echo $(pamixer --get-volume)%" },
+  /* { vol_perc,     "%s",              "/dev/mixer"}, */
   { run_command,  "^B10^󰃠 ^B0^%4s",  "bash ~/dwmblocks/bright.sh"},
   { datetime,     "^B6^󰥔 ^B0^%5s",   "%H:%M"},
   { datetime,     "^B3^ ^B0^%8s",   "%d/%m/%y"},
